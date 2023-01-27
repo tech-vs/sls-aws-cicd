@@ -1,0 +1,16 @@
+version: 0.2
+run-as: root
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - npm i -g serverless
+      - npm i
+  build:
+    commands:
+      - serverless deploy --stage ${STAGE_NAME}
+cache:
+  path:
+    - node_modules
